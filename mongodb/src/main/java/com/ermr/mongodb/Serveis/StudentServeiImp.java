@@ -36,6 +36,11 @@ public class StudentServeiImp implements StudentServei {
     }
 
     @Override
+    public Flux<Student> findByName(String name){
+        return studentRepo.findByNameRegex(name);
+    }
+
+    @Override
     public Flux<Student> findAll(){
         return studentRepo.findAll();
     }

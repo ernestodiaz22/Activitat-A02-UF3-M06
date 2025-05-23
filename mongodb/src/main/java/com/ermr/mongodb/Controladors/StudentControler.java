@@ -49,6 +49,11 @@ public class StudentControler {
         return studentServei.delete(id);
     }
 
+    //Nota: Quise utilizar simplemente "{nombre}", pero al hacerlo, Swagger no supo discernir entre "{id}" y "{nombre}". Solo Dios todo poderoso sabe por qué.
+    @GetMapping("/buscarNombre{nombre}")
+    public Flux<Student> findByName(@PathVariable String nombre){
+        return studentServei.findByName(nombre);
+    }
 
 
 }
